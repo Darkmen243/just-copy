@@ -65,6 +65,11 @@ const routes = [
     name: 'progressAn',
     component: () => import(/* webpackChunkName: "loader" */ '../views/ProgressAnPage.vue')
   },
+  {
+    path: '/coordinates',
+    name: 'coordinates',
+    component: () => import(/* webpackChunkName: "coordinates" */ '../views/CoordinatePage.vue')
+  },
 ]
 
 const router = new VueRouter({
