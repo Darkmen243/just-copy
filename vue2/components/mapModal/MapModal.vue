@@ -1,6 +1,7 @@
 <template>
   <div class="map-modal">
-    <div class="map-modal__background" 
+    <div 
+      class="map-modal__background" 
       @click="close">
     </div>
     <div class="map-modal__content">
@@ -10,7 +11,7 @@
         Закрыть
       </button>
       <h3>Выберите координаты на карте</h3>
-        <div ref="map" class="map-modal__map"></div>
+      <div ref="map" class="map-modal__map"></div>
       <button 
         class="map-modal__select" 
         @click="confirmSelection">
@@ -72,41 +73,41 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.map-modal__background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
 
-.map-modal__content {
-  position: relative;
-  background: white;
-  border-radius: 8px;
-  width: 40em;
-  overflow: hidden;
-}
+  &__content {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    width: 40em;
+    overflow: hidden;
+  }
 
-.map-modal__close {
-  font-weight: bold;
-  color: red;
-  cursor: pointer;
-  margin-top: 1em;
-}
+  &__close {
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    margin-top: 1em;
+  }
 
-.map-modal__map {
-  width: 100%;
-  height: 30em;
-}
+  &__map {
+    width: 100%;
+    height: 30em;
+  }
 
-.map-modal__select {
-  padding: 1em;
-  background-color: blue;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 1.5em;
+  &__select {
+    padding: 1em;
+    background-color: blue;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1.5em;
+  }
 }
 </style>

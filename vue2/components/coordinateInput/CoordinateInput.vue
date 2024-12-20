@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       coordinates: "",
-      currentCoordinates: "", 
+      currentCoordinates: "",
       isModalOpen: false
     };
   },
@@ -79,26 +79,26 @@ export default {
 .coordinate-input {
   display: flex;
   align-items: center;
-}
 
-.coordinate-input__field {
-  flex: 1;
-  padding: 0.5em;
-  border: 1px solid lightgrey;
-  border-radius: 0.5em;
-}
+  &__field {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid lightgrey;
+    border-radius: 0.5em;
+  }
 
-.coordinate-input__button {
-  margin-left: 0.5em;
-  padding: 0.5em;
-  background-color: lightblue;
-  color: white;
-  border: none;
-  border-radius: 0.5em;
-  cursor: pointer;
+  &__button {
+    margin-left: 0.5em;
+    padding: 0.5em;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
 
-  &:hover {
-    background-color: blue;
+    &:hover {
+      background-color: blue;
+    }
   }
 }
 </style>

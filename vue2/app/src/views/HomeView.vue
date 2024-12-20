@@ -50,6 +50,7 @@
        </router-link></p>
     <p><router-link :to="{ name: 'accordionStaysPage' }">
       accordionStaysPage
+    </router-link></p>
     <p><router-link :to="{ name: 'coordinates' }">
       CoordinateInput
     </router-link></p>
