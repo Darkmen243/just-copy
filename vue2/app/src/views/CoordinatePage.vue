@@ -1,19 +1,27 @@
 <template>
   <div class="home-page">
     <h1>Введите координаты</h1>
-    <CoordinateInput />
+    <CoordinateInput 
+      v-model="coordinates" 
+    />
+    <h1>Координаты: {{ coordinates }}</h1>
   </div>
 </template>
 
 <script>
-import CoordinateInput from '../../../components/coordinateInput/CoordinateInput.vue';
+import CoordinateInput from "../../../components/coordinateInput/CoordinateInput.vue";
 
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   components: {
     CoordinateInput
-  }
-}
+  },
+  data() {
+    return {
+      coordinates: ""
+    };
+  },
+};
 </script>
 
 <style scoped lang="less">

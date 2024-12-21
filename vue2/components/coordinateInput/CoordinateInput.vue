@@ -1,21 +1,21 @@
 <template>
   <div class="coordinate-input">
     <input
-      v-model="coordinates"
+      v-model="localCoordinates"
       class="coordinate-input__field"
       type="text"
       placeholder="Введите координаты через запятую"
     />
     <button 
       class="coordinate-input__button" 
-      @click="handleButtonClick">
+      @click="() => handleButtonClick()">
       Указать
     </button>
     <MapModal
       v-if="isModalOpen"
       :default-coordinates="currentCoordinates"
-      @close="closeModal"
-      @select="setCoordinates"
+      @close="() => closeModal()"
+      @select="(coords) => setCoordinates(coords)"
     />
   </div>
 </template>
@@ -28,19 +28,34 @@ export default {
   components: {
     MapModal
   },
+  props: {
+    value: {
+      type: String,
+      default: ""
+    },
+  },
   data() {
     return {
-      coordinates: "",
-      currentCoordinates: "",
+      currentCoordinates: "", 
       isModalOpen: false
     };
   },
+  computed: {
+    localCoordinates: {
+      get() {
+        return this.value; 
+      },
+      set(value) {
+        this.$emit("input", value); 
+      },
+    },
+  },
   methods: {
     handleButtonClick() {
-      if (!this.coordinates.trim()) {
+      if (!this.localCoordinates) {
         this.getCurrentLocation();
       } else {
-        this.currentCoordinates = this.coordinates;
+        this.currentCoordinates = this.localCoordinates;
         this.openModal();
       }
     },
@@ -50,6 +65,7 @@ export default {
           (position) => {
             const { latitude, longitude } = position.coords;
             this.currentCoordinates = `${latitude.toFixed(6)},${longitude.toFixed(6)}`;
+            this.localCoordinates = this.currentCoordinates; 
             this.openModal();
           },
           (error) => {
@@ -68,7 +84,7 @@ export default {
       this.isModalOpen = false;
     },
     setCoordinates(newCoordinates) {
-      this.coordinates = newCoordinates;
+      this.localCoordinates = newCoordinates; 
       this.closeModal();
     },
   },

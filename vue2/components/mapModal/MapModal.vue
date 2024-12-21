@@ -2,19 +2,19 @@
   <div class="map-modal">
     <div 
       class="map-modal__background" 
-      @click="close">
+      @click="() => close()">
     </div>
     <div class="map-modal__content">
       <button 
         class="map-modal__close" 
-        @click="close">
+        @click="() => close()">
         Закрыть
       </button>
       <h3>Выберите координаты на карте</h3>
       <div ref="map" class="map-modal__map"></div>
       <button 
         class="map-modal__select" 
-        @click="confirmSelection">
+        @click="() => confirmSelection()">
         Выбрать
       </button>
     </div>
@@ -47,7 +47,6 @@ export default {
           center: [lat, lng],
           zoom: 10,
         });
-
         this.placemark = new ymaps.Placemark([lat, lng], {}, { draggable: true });
         this.map.geoObjects.add(this.placemark);
       });
