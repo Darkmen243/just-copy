@@ -91,9 +91,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "modal2" */ '../views/AccordionStaysPage.vue')
  },
  {
-    path: '/coordinates',
-    name: 'coordinates',
-    component: () => import(/* webpackChunkName: "coordinates" */ '../views/CoordinatePage.vue')
+    path: '/perelivator',
+    name: 'perelivator',
+    component: () => import(/* webpackChunkName: "perelivator" */ '../views/PerelivatorPage.vue')
   },
 ]
 
